@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f9980893-5ff7-4209-bcca-ef8aea5c9832">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="doc" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[call `ReportComprasXDocumento`($P{doc});]]>
+	</queryString>
+	<field name="FECHA" class="java.sql.Date"/>
+	<field name="PROVEEDOR" class="java.lang.String"/>
+	<field name="SERIE" class="java.lang.String"/>
+	<field name="TOTAL" class="java.math.BigDecimal"/>
+	<field name="MEDICAMENTO" class="java.lang.String"/>
+	<field name="CANT" class="java.lang.Integer"/>
+	<field name="PRC COMPRA" class="java.math.BigDecimal"/>
+	<field name="TOT" class="java.math.BigDecimal"/>
+	<field name="MIN" class="java.math.BigDecimal"/>
+	<field name="VENTA" class="java.math.BigDecimal"/>
+	<group name="FECHA">
+		<groupExpression><![CDATA[$F{FECHA}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="0" y="0" width="555" height="20" uuid="a13c619c-b962-497e-8fcb-035e645fbd7d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="20">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="20" uuid="d9fa3ef0-cdec-41fa-99b8-858bc4717970"/>
+					<textElement>
+						<font fontName="Calibri Light" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PROVEEDOR}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="20" uuid="d5991b80-03bf-41a9-8f3b-7751f61c1b13"/>
+					<textElement>
+						<font fontName="Calibri Light" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SERIE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="0" width="100" height="20" uuid="6efa2354-b2d6-4ae0-8784-ba788fe22404"/>
+					<textElement>
+						<font fontName="Calibri Light" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="18">
+				<line>
+					<reportElement x="0" y="9" width="555" height="1" uuid="a43bc195-17d4-4621-bf95-dbd0e089aca4"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dashed" lineColor="#333333"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="472" height="29" uuid="ae2a147a-60e8-4a80-89d7-5e1b3bbaf9c9"/>
+				<textElement>
+					<font fontName="Calibri Light" size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[REGISTRO DE COMPRAS DE LA EMPRESA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="82" height="20" uuid="af4c47eb-5c8a-4fbe-8785-3a173b67b503"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTO GENERADO:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="82" y="0" width="100" height="20" uuid="8a73ba77-b11c-4728-9a08-70631b735a40"/>
+				<textElement>
+					<font fontName="Calibri Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="182" y="0" width="82" height="20" uuid="0598a548-0495-4070-897f-ce237d0fed5e"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORA:]]></text>
+			</staticText>
+			<textField pattern="h.mm a">
+				<reportElement x="264" y="0" width="100" height="20" uuid="a1070e5d-fdfb-4c7d-8199-7181fb6db65b"/>
+				<textElement>
+					<font fontName="Calibri Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="364" y="0" width="44" height="20" uuid="bdd51f8a-3878-43a2-a8f4-1ac8d0dc028a"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FILTRADO POR:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="408" y="0" width="100" height="20" uuid="8951b7dc-b2e9-4dd1-b1c3-97f0cab1234f"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{doc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="deead5f3-c065-4f89-b417-85aba1fe81df"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEDICAMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="5805b1eb-7344-499f-82f0-61a8c426701b"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="84c5b566-cbfc-41ff-a92e-b2674298969d"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO COMPRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="101315a2-4159-4c86-b2b3-b164391b6abd"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="91" height="20" uuid="72400c4b-aa3d-4313-8e6e-87e4c552ec08"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINIMO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="491" y="0" width="64" height="20" uuid="22240ff7-c89a-4e3f-9bc8-54c28bc83ca0"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NORMAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="88dd52b0-9121-4995-be0e-1f755beb0915"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MEDICAMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="06796d37-3ebf-4fe9-8f2a-6b08d6902e90"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="d0433d6e-e321-4e6d-9797-78a2514f6219"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRC COMPRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="be6f7f66-8cf3-49a3-80cb-25a9e34b7e85"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="91" height="20" uuid="f4472bc7-ac1a-40d9-80a1-d90fe8be7fac"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="0" width="64" height="20" uuid="fac7f8e7-34ab-49f7-b0fd-dc9407fed238"/>
+				<textElement>
+					<font fontName="Calibri Light" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VENTA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
