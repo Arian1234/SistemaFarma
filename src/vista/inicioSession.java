@@ -1143,7 +1143,7 @@ public final class inicioSession extends javax.swing.JFrame {
         lblmessage.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         lblmessage.setForeground(new java.awt.Color(255, 255, 255));
         lblmessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblmessage.setText("Por favor ingrese su usuario y contrasena.");
+        lblmessage.setText("Por favor ingrese su usuario y contrasena");
         lblmessage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblmessage.setMaximumSize(new java.awt.Dimension(51, 23));
         lblmessage.setMinimumSize(new java.awt.Dimension(51, 23));
